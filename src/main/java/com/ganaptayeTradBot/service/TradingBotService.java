@@ -4,11 +4,8 @@ import com.ganaptayeTradBot.KotakNeoService;
 import com.ganaptayeTradBot.DataAnalyzer;
 import com.ganaptayeTradBot.TradeExecutor;
 import com.ganaptayeTradBot.TradeLogger;
-import com.ganaptayeTradBot.TradeSignal;
 import com.ganaptayeTradBot.auth.KotakNeoAuthService;
-import org.springframework.stereotype.Service;
 
-@Service
 public class TradingBotService {
 
     private final KotakNeoService kotakNeoService;
@@ -19,9 +16,11 @@ public class TradingBotService {
     private final LongPutOptionsStrategy longPutOptionsStrategy;
     private final KotakNeoAuthService kotakNeoAuthService;
 
-    public TradingBotService(KotakNeoService kotakNeoService, DataAnalyzer dataAnalyzer,
-                             TradeExecutor tradeExecutor, TradeLogger tradeLogger,
-                             LongCallOptionsStrategy longCallOptionsStrategy,
+    public TradingBotService(KotakNeoService kotakNeoService, 
+                             DataAnalyzer dataAnalyzer, 
+                             TradeExecutor tradeExecutor, 
+                             TradeLogger tradeLogger, 
+                             LongCallOptionsStrategy longCallOptionsStrategy, 
                              LongPutOptionsStrategy longPutOptionsStrategy,
                              KotakNeoAuthService kotakNeoAuthService) {
         this.kotakNeoService = kotakNeoService;
@@ -33,20 +32,5 @@ public class TradingBotService {
         this.kotakNeoAuthService = kotakNeoAuthService;
     }
 
-    public void run() {
-        try {
-            // Fetch real-time market data
-            String marketData = kotakNeoService.fetchMarketData();
-
-            // Execute strategies
-            longCallOptionsStrategy.executeStrategy();
-            longPutOptionsStrategy.executeStrategy();
-
-            // Handle authentication if necessary
-            // Example: kotakNeoAuthService.getSessionToken("receivedOtp");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    // Define methods for trading bot functionality
 }

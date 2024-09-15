@@ -30,7 +30,6 @@ public class KotakNeoAuthService {
     private final OkHttpClient client = new OkHttpClient();
 
     public String getSessionToken(String otp) throws IOException {
-        // Example implementation for viewing a session token
         Request request = new Request.Builder()
             .url(tokenUrl)
             .header("Authorization", "Bearer " + accessToken)
@@ -47,9 +46,6 @@ public class KotakNeoAuthService {
     }
 
     public String generateOtp() throws IOException {
-        // Implementation for generating OTP
-        // Send request to Kotak Neo's OTP generation endpoint
-        // Example placeholder implementation
         Request request = new Request.Builder()
             .url("https://gw-napi.kotaksecurities.com/login/1.0/login/v2/validate")
             .header("Authorization", "Bearer " + accessToken)
@@ -66,9 +62,6 @@ public class KotakNeoAuthService {
     }
 
     public String viewToken() throws IOException {
-        // Implementation for viewing the token
-        // Typically involves sending a request to the token endpoint
-        // Example placeholder implementation
         Request request = new Request.Builder()
             .url(tokenUrl)
             .header("Authorization", "Bearer " + accessToken)
@@ -83,7 +76,6 @@ public class KotakNeoAuthService {
     }
 
     public void revokeToken(String token) throws IOException {
-        // Implementation for revoking the token
         Request request = new Request.Builder()
             .url(revokeUrl)
             .header("Authorization", "Bearer " + token)
